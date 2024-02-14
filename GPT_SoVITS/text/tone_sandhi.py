@@ -14,7 +14,11 @@
 from typing import List
 from typing import Tuple
 
+<<<<<<< HEAD
 import jieba
+=======
+import jieba_fast as jieba
+>>>>>>> 20ba91a (i18n and pt_BR correction)
 from pypinyin import lazy_pinyin
 from pypinyin import Style
 
@@ -455,6 +459,38 @@ class ToneSandhi:
             "电子",
             "人人",
             "虎虎",
+<<<<<<< HEAD
+=======
+            "幺幺",
+            "干嘛",
+            "学子",
+            "哈哈",
+            "数数",
+            "袅袅",
+            "局地",
+            "以下",
+            "娃哈哈",
+            "花花草草",
+            "留得",
+            "耕地",
+            "想想",
+            "熙熙",
+            "攘攘",
+            "卵子",
+            "死死",
+            "冉冉",
+            "恳恳",
+            "佼佼",
+            "吵吵",
+            "打打",
+            "考考",
+            "整整",
+            "莘莘",
+            "落地",
+            "算子",
+            "家家户户",
+            "青青",
+>>>>>>> 20ba91a (i18n and pt_BR correction)
         }
         self.punc = "：，；。？！“”‘’':,;.?!"
 

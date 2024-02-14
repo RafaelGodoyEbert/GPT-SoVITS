@@ -239,7 +239,11 @@ class Predictor:
 
 
 class MDXNetDereverb:
+<<<<<<< HEAD
     def __init__(self, chunks, device):
+=======
+    def __init__(self, chunks):
+>>>>>>> 20ba91a (i18n and pt_BR correction)
         self.onnx = "%s/uvr5_weights/onnx_dereverb_By_FoxJoy"%os.path.dirname(os.path.abspath(__file__))
         self.shifts = 10  # 'Predict with randomised equivariant stabilisation'
         self.mixing = "min_mag"  # ['default','min_mag','max_mag']
@@ -250,7 +254,11 @@ class MDXNetDereverb:
         self.n_fft = 6144
         self.denoise = True
         self.pred = Predictor(self)
+<<<<<<< HEAD
         self.device = device
+=======
+        self.device = cpu
+>>>>>>> 20ba91a (i18n and pt_BR correction)
 
     def _path_audio_(self, input, vocal_root, others_root, format, is_hp3=False):
         self.pred.prediction(input, vocal_root, others_root, format)

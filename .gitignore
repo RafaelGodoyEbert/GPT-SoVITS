@@ -4,3 +4,11 @@ __pycache__
 env
 runtime
 .idea
+<<<<<<< HEAD
+=======
+output
+logs
+reference
+SoVITS_weights
+GPT_weights
+>>>>>>> 20ba91a (i18n and pt_BR correction)

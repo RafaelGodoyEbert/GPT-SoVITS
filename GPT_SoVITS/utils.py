@@ -18,7 +18,11 @@ logging.getLogger("matplotlib").setLevel(logging.ERROR)
 
 MATPLOTLIB_FLAG = False
 
+<<<<<<< HEAD
 logging.basicConfig(stream=sys.stdout, level=logging.WARNING)
+=======
+logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
+>>>>>>> 20ba91a (i18n and pt_BR correction)
 logger = logging
 
 
@@ -310,13 +314,21 @@ def check_git_hash(model_dir):
 def get_logger(model_dir, filename="train.log"):
     global logger
     logger = logging.getLogger(os.path.basename(model_dir))
+<<<<<<< HEAD
     logger.setLevel(logging.WARNING)
+=======
+    logger.setLevel(logging.DEBUG)
+>>>>>>> 20ba91a (i18n and pt_BR correction)
 
     formatter = logging.Formatter("%(asctime)s\t%(name)s\t%(levelname)s\t%(message)s")
     if not os.path.exists(model_dir):
         os.makedirs(model_dir)
     h = logging.FileHandler(os.path.join(model_dir, filename))
+<<<<<<< HEAD
     h.setLevel(logging.WARNING)
+=======
+    h.setLevel(logging.DEBUG)
+>>>>>>> 20ba91a (i18n and pt_BR correction)
     h.setFormatter(formatter)
     logger.addHandler(h)
     return logger

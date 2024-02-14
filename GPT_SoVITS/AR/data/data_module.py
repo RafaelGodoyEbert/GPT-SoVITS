@@ -41,7 +41,11 @@ class Text2SemanticDataModule(LightningDataModule):
         #     pad_val=self.config['data']['pad_val'])
 
     def train_dataloader(self):
+<<<<<<< HEAD
         batch_size = self.config["train"]["batch_size"]
+=======
+        batch_size = max(min(self.config["train"]["batch_size"],len(self._train_dataset)//4),1)#防止不保存
+>>>>>>> 20ba91a (i18n and pt_BR correction)
         sampler = DistributedBucketSampler(self._train_dataset, batch_size=batch_size)
         return DataLoader(
             self._train_dataset,
