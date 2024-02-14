@@ -50,7 +50,7 @@ from subprocess import Popen
 import signal
 from config import python_exec,infer_device,is_half,exp_root,webui_port_main,webui_port_infer_tts,webui_port_uvr5,webui_port_subfix,is_share
 from tools.i18n.i18n import I18nAuto
-i18n = I18nAuto()
+i18n = I18nAuto(language="pt_BR")
 from scipy.io import wavfile
 from tools.my_utils import load_audio
 from multiprocessing import cpu_count
@@ -835,7 +835,7 @@ with gr.Blocks(title="GPT-SoVITS WebUI") as app:
     app.queue(concurrency_count=511, max_size=1022).launch(
         server_name="0.0.0.0",
         inbrowser=True,
-        share=is_share,
+        share=True,
         server_port=webui_port_main,
         quiet=True,
     )

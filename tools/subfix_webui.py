@@ -9,7 +9,7 @@ import gradio as gr
 import numpy as np
 import soundfile
 from tools.i18n.i18n import I18nAuto
-i18n = I18nAuto()
+i18n = I18nAuto(language="pt_BR")
 
 g_json_key_text = ""
 g_json_key_path = ""
@@ -495,6 +495,6 @@ if __name__ == "__main__":
         server_name="0.0.0.0",
         inbrowser=True,
         quiet=True,
-        share=eval(args.is_share),
+        share=True,
         server_port=int(args.webui_port_subfix)
     )

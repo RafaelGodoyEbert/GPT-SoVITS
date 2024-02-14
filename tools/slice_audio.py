@@ -6,7 +6,7 @@ from scipy.io import wavfile
 from my_utils import load_audio
 from slicer2 import Slicer
 from tools.i18n.i18n import I18nAuto
-i18n = I18nAuto()
+i18n = I18nAuto(language="pt_BR")
 
 def slice(inp,opt_root,threshold,min_length,min_interval,hop_size,max_sil_kept,_max,alpha,i_part,all_part):
     os.makedirs(opt_root,exist_ok=True)
