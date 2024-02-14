@@ -8,11 +8,8 @@ import librosa
 import gradio as gr
 import numpy as np
 import soundfile
-<<<<<<< HEAD
-=======
 from tools.i18n.i18n import I18nAuto
 i18n = I18nAuto()
->>>>>>> 20ba91a (i18n and pt_BR correction)
 
 g_json_key_text = ""
 g_json_key_path = ""
@@ -84,10 +81,7 @@ def b_change_index(index, batch):
 
 
 def b_next_index(index, batch):
-<<<<<<< HEAD
-=======
     b_save_file()
->>>>>>> 20ba91a (i18n and pt_BR correction)
     if (index + batch) <= g_max_json_index:
         return index + batch , *b_change_index(index + batch, batch)
     else:
@@ -95,10 +89,7 @@ def b_next_index(index, batch):
 
 
 def b_previous_index(index, batch):
-<<<<<<< HEAD
-=======
     b_save_file()
->>>>>>> 20ba91a (i18n and pt_BR correction)
     if (index - batch) >= 0:
         return index - batch , *b_change_index(index - batch, batch)
     else:
@@ -121,10 +112,7 @@ def b_submit_change(*text_list):
 
 def b_delete_audio(*checkbox_list):
     global g_data_json, g_index, g_max_json_index
-<<<<<<< HEAD
-=======
     b_save_file()
->>>>>>> 20ba91a (i18n and pt_BR correction)
     change = False
     for i, checkbox in reversed(list(enumerate(checkbox_list))):
         if g_index + i < len(g_data_json):
@@ -136,13 +124,8 @@ def b_delete_audio(*checkbox_list):
     if g_index > g_max_json_index:
         g_index = g_max_json_index
         g_index = g_index if g_index >= 0 else 0
-<<<<<<< HEAD
-    # if change:
-    #     b_save_file()
-=======
     if change:
         b_save_file()
->>>>>>> 20ba91a (i18n and pt_BR correction)
     # return gr.Slider(value=g_index, maximum=(g_max_json_index if g_max_json_index>=0 else 0)), *b_change_index(g_index, g_batch)
     return {"value":g_index,"__type__":"update","maximum":(g_max_json_index if g_max_json_index>=0 else 0)},*b_change_index(g_index, g_batch)
 
@@ -192,10 +175,7 @@ def b_audio_split(audio_breakpoint, *checkbox_list):
 
 def b_merge_audio(interval_r, *checkbox_list):
     global g_data_json , g_max_json_index
-<<<<<<< HEAD
-=======
     b_save_file()
->>>>>>> 20ba91a (i18n and pt_BR correction)
     checked_index = []
     audios_path = []
     audios_text = []
@@ -320,10 +300,7 @@ def set_global(load_json, load_list, json_key_text, json_key_path, batch):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Process some integers.')
     parser.add_argument('--load_json', default="None", help='source file, like demo.json')
-<<<<<<< HEAD
-=======
     parser.add_argument('--is_share', default="False", help='whether webui is_share=True')
->>>>>>> 20ba91a (i18n and pt_BR correction)
     parser.add_argument('--load_list', default="None", help='source file, like demo.list')
     parser.add_argument('--webui_port_subfix', default=9871, help='source file, like demo.list')
     parser.add_argument('--json_key_text', default="text", help='the text key name in json, Default: text')
@@ -337,73 +314,42 @@ if __name__ == "__main__":
     with gr.Blocks() as demo:
 
         with gr.Row():
-<<<<<<< HEAD
-            btn_change_index = gr.Button("Change Index")
-            btn_submit_change = gr.Button("Submit Text")
-            btn_merge_audio = gr.Button("Merge Audio")
-            btn_delete_audio = gr.Button("Delete Audio")
-            btn_previous_index = gr.Button("Previous Index")
-            btn_next_index = gr.Button("Next Index")
-=======
             btn_change_index = gr.Button(i18n("Change Index"))
             btn_submit_change = gr.Button(i18n("Submit Text"))
             btn_merge_audio = gr.Button(i18n("Merge Audio"))
             btn_delete_audio = gr.Button(i18n("Delete Audio"))
             btn_previous_index = gr.Button(i18n("Previous Index"))
             btn_next_index = gr.Button(i18n("Next Index"))
->>>>>>> 20ba91a (i18n and pt_BR correction)
             
         with gr.Row():
             index_slider = gr.Slider(
                     minimum=0, maximum=g_max_json_index, value=g_index, step=1, label="Index", scale=3
             )
             splitpoint_slider = gr.Slider(
-<<<<<<< HEAD
-                    minimum=0, maximum=120.0, value=0, step=0.1, label="Audio Split Point(s)", scale=3
-            )
-            btn_audio_split = gr.Button("Split Audio", scale=1)
-            btn_save_json = gr.Button("Save File", visible=True, scale=1)
-            btn_invert_selection = gr.Button("Invert Selection", scale=1)
-=======
                     minimum=0, maximum=120.0, value=0, step=0.1, label=i18n("Audio Split Point(s)"), scale=3
             )
             btn_audio_split = gr.Button(i18n("Split Audio"), scale=1)
             btn_save_json = gr.Button(i18n("Save File"), visible=True, scale=1)
             btn_invert_selection = gr.Button(i18n("Invert Selection"), scale=1)
->>>>>>> 20ba91a (i18n and pt_BR correction)
         
         with gr.Row():
             with gr.Column():
                 for _ in range(0,g_batch):
                     with gr.Row():
                         text = gr.Textbox(
-<<<<<<< HEAD
-                            label = "Text",
-=======
                             label = i18n('Text'),
->>>>>>> 20ba91a (i18n and pt_BR correction)
                             visible = True,
                             scale=5
                         )
                         audio_output = gr.Audio(
-<<<<<<< HEAD
-                            label="Output Audio",
-=======
                             label=i18n("Output Audio"),
->>>>>>> 20ba91a (i18n and pt_BR correction)
                             visible = True,
                             scale=5
                         )
                         audio_check = gr.Checkbox(
-<<<<<<< HEAD
-                            label="Yes",
-                            show_label = True,
-                            info = "Choose Audio",
-=======
                             label=i18n("Yes"),
                             show_label = True,
                             info = i18n("Choose Audio"),
->>>>>>> 20ba91a (i18n and pt_BR correction)
                             scale=1
                         )
                         g_text_list.append(text)
@@ -414,15 +360,6 @@ if __name__ == "__main__":
 
         with gr.Row():
             batchsize_slider = gr.Slider(
-<<<<<<< HEAD
-                    minimum=1, maximum=g_batch, value=g_batch, step=1, label="Batch Size", scale=3, interactive=False
-            )
-            interval_slider = gr.Slider(
-                    minimum=0, maximum=2, value=0, step=0.01, label="Interval", scale=3
-            )
-            btn_theme_dark = gr.Button("Light Theme", link="?__theme=light", scale=1)
-            btn_theme_light = gr.Button("Dark Theme", link="?__theme=dark", scale=1)
-=======
                     minimum=1, maximum=g_batch, value=g_batch, step=1, label=i18n("Batch Size"), scale=3, interactive=False
             )
             interval_slider = gr.Slider(
@@ -430,7 +367,6 @@ if __name__ == "__main__":
             )
             btn_theme_dark = gr.Button(i18n("Light Theme"), link="?__theme=light", scale=1)
             btn_theme_light = gr.Button(i18n("Dark Theme"), link="?__theme=dark", scale=1)
->>>>>>> 20ba91a (i18n and pt_BR correction)
         
         btn_change_index.click(
             b_change_index,
@@ -559,9 +495,6 @@ if __name__ == "__main__":
         server_name="0.0.0.0",
         inbrowser=True,
         quiet=True,
-<<<<<<< HEAD
-=======
         share=eval(args.is_share),
->>>>>>> 20ba91a (i18n and pt_BR correction)
         server_port=int(args.webui_port_subfix)
     )

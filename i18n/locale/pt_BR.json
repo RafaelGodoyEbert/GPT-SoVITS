@@ -79,11 +79,8 @@
     "1C-推理": "1C-raciocínio",
     "选择训练完存放在SoVITS_weights和GPT_weights下的模型。默认的一个是底模，体验5秒Zero Shot TTS用。": "Selecione os modelos armazenados em Sovits_weights e GPT_WEIGHTS. O padrão é o modelo inferior, experiência para 5 segundos de Zero Shot TTS",
     "*GPT模型列表": "*Lista de modelos GPT",
-<<<<<<< HEAD
-=======
     "GPT模型列表": "Lista de modelos GPT",
     "SoVITS模型列表": "Lista de modelos Sovits",
->>>>>>> 20ba91a (i18n and pt_BR correction)
     "*SoVITS模型列表": "*Lista de modelos Sovits",
     "GPU卡号,只能填1个整数": "Número da placa de vídeo, só é possível preencher com um número inteiro",
     "刷新模型路径": "Atualizar caminho do modelo",
@@ -94,9 +91,6 @@
     "TTS推理进程已开启": "O processo de inferência TTS foi iniciado",
     "TTS推理进程已关闭": "O processo de inferência TTS foi desativado",
     "打标工具WebUI已开启": "A ferramenta de marcação WebUI está ativada",
-<<<<<<< HEAD
-    "打标工具WebUI已关闭": "A ferramenta de marcação WebUI foi desativado"
-=======
     "打标工具WebUI已关闭": "A ferramenta de marcação WebUI foi desativado",
     "切割结束": "Fim do corte",
     "切割执行中": "Corte em andamento",
@@ -167,5 +161,4 @@
     "后续将支持混合语种编码文本输入。": "A entrada de texto com codificação de idioma misto será suportada no futuro.",
     "合成语音": "fala sintetizada",
     "切分后文本": "Texto segmentado"
->>>>>>> 20ba91a (i18n and pt_BR correction)
 }

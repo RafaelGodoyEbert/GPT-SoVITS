@@ -3,29 +3,6 @@
 <h1>GPT-SoVITS-WebUI</h1>
 A Powerful Few-shot Voice Conversion and Text-to-Speech WebUI.<br><br>
 
-<<<<<<< HEAD
-[![madewithlove](https://img.shields.io/badge/made_with-%E2%9D%A4-red?style=for-the-badge&labelColor=orange
-)](https://github.com/RVC-Boss/GPT-SoVITS)
-
-<img src="https://counter.seku.su/cmoe?name=gptsovits&theme=r34" /><br>
-
-[![Licence](https://img.shields.io/badge/LICENSE-MIT-green.svg?style=for-the-badge)](https://github.com/RVC-Boss/GPT-SoVITS/blob/main/LICENSE)
-[![Huggingface](https://img.shields.io/badge/🤗%20-Spaces-yellow.svg?style=for-the-badge)](https://huggingface.co/lj1995/GPT-SoVITS/tree/main)
-
-[**English**](./README.md) | [**中文简体**](./docs/cn/README.md) | [**日本語**](./docs/ja/README.md)
-
-</div>
-
-------
-
-
-
-> Check out our [demo video](https://www.bilibili.com/video/BV12g4y1m7Uw) here!
-
-https://github.com/RVC-Boss/GPT-SoVITS/assets/129054828/05bee1fa-bdd8-4d85-9350-80c060ab47fb
-
-## Features:
-=======
 [![madewithlove](https://img.shields.io/badge/made_with-%E2%9D%A4-red?style=for-the-badge&labelColor=orange)](https://github.com/RVC-Boss/GPT-SoVITS)
 
 <img src="https://counter.seku.su/cmoe?name=gptsovits&theme=r34" /><br>
@@ -50,7 +27,6 @@ For users in China region, you can use AutoDL Cloud Docker to experience the ful
 
 ## Features:
 
->>>>>>> 20ba91a (i18n and pt_BR correction)
 1. **Zero-shot TTS:** Input a 5-second vocal sample and experience instant text-to-speech conversion.
 
 2. **Few-shot TTS:** Fine-tune the model with just 1 minute of training data for improved voice similarity and realism.
@@ -67,10 +43,7 @@ If you are a Windows user (tested with win>=10) you can install directly via the
 
 - Python 3.9, PyTorch 2.0.1, CUDA 11
 - Python 3.10.13, PyTorch 2.1.2, CUDA 12.3
-<<<<<<< HEAD
-=======
 - Python 3.9, PyTorch 2.3.0.dev20240122, macOS 14.3 (Apple silicon, GPU)
->>>>>>> 20ba91a (i18n and pt_BR correction)
 
 _Note: numba==0.56.4 require py<3.11_
 
@@ -81,43 +54,19 @@ conda create -n GPTSoVits python=3.9
 conda activate GPTSoVits
 bash install.sh
 ```
-<<<<<<< HEAD
-### Install Manually
-#### Make sure you have the distutils for python3.9 installed
-
-```bash
-sudo apt-get install python3.9-distutils
-```
-=======
 
 ### Install Manually
->>>>>>> 20ba91a (i18n and pt_BR correction)
 
 #### Pip Packages
 
 ```bash
-<<<<<<< HEAD
-pip install torch numpy scipy tensorboard librosa==0.9.2 numba==0.56.4 pytorch-lightning gradio==3.14.0 ffmpeg-python onnxruntime tqdm cn2an pypinyin pyopenjtalk g2p_en chardet
-```
-
-#### Additional Requirements
-
-If you need Chinese ASR (supported by FunASR), install:
-
-```bash
-pip install modelscope torchaudio sentencepiece funasr
-=======
 pip install -r requirements.txt
->>>>>>> 20ba91a (i18n and pt_BR correction)
 ```
 
 #### FFmpeg
 
 ##### Conda Users
-<<<<<<< HEAD
-=======
 
->>>>>>> 20ba91a (i18n and pt_BR correction)
 ```bash
 conda install ffmpeg
 ```
@@ -142,15 +91,6 @@ Download and place [ffmpeg.exe](https://huggingface.co/lj1995/VoiceConversionWeb
 
 ### Pretrained Models
 
-<<<<<<< HEAD
-
-Download pretrained models from [GPT-SoVITS Models](https://huggingface.co/lj1995/GPT-SoVITS) and place them in `GPT_SoVITS/pretrained_models`.
-
-For Chinese ASR (additionally), download models from [Damo ASR Model](https://modelscope.cn/models/damo/speech_paraformer-large_asr_nat-zh-cn-16k-common-vocab8404-pytorch/files), [Damo VAD Model](https://modelscope.cn/models/damo/speech_fsmn_vad_zh-cn-16k-common-pytorch/files), and [Damo Punc Model](https://modelscope.cn/models/damo/punc_ct-transformer_zh-cn-common-vocab272727-pytorch/files) and place them in `tools/damo_asr/models`.
-
-For UVR5 (Vocals/Accompaniment Separation & Reverberation Removal, additionally), download models from [UVR5 Weights](https://huggingface.co/lj1995/VoiceConversionWebUI/tree/main/uvr5_weights) and place them in `tools/uvr5/uvr5_weights`.
-
-=======
 Download pretrained models from [GPT-SoVITS Models](https://huggingface.co/lj1995/GPT-SoVITS) and place them in `GPT_SoVITS/pretrained_models`.
 
 For UVR5 (Vocals/Accompaniment Separation & Reverberation Removal, additionally), download models from [UVR5 Weights](https://huggingface.co/lj1995/VoiceConversionWebUI/tree/main/uvr5_weights) and place them in `tools/uvr5/uvr5_weights`.
@@ -216,7 +156,6 @@ As above, modify the corresponding parameters based on your actual situation, th
 ```
 docker run --rm -it --gpus=all --env=is_half=False --volume=G:\GPT-SoVITS-DockerTest\output:/workspace/output --volume=G:\GPT-SoVITS-DockerTest\logs:/workspace/logs --volume=G:\GPT-SoVITS-DockerTest\SoVITS_weights:/workspace/SoVITS_weights --workdir=/workspace -p 9880:9880 -p 9871:9871 -p 9872:9872 -p 9873:9873 -p 9874:9874 --shm-size="16G" -d breakstring/gpt-sovits:xxxxx
 ```
->>>>>>> 20ba91a (i18n and pt_BR correction)
 
 ## Dataset Format
 
@@ -237,29 +176,6 @@ Example:
 ```
 D:\GPT-SoVITS\xxx/xxx.wav|xxx|en|I like playing Genshin.
 ```
-<<<<<<< HEAD
-## Todo List
-
-- [ ] **High Priority:**
-   - [ ] Localization in Japanese and English.
-   - [ ] User guide.
-   - [ ] Japanese and English dataset fine tune training.
-
-- [ ] **Features:**
-   - [ ] Zero-shot voice conversion (5s) / few-shot voice conversion (1min).
-   - [ ] TTS speaking speed control.
-   - [ ] Enhanced TTS emotion control.
-   - [ ] Experiment with changing SoVITS token inputs to probability distribution of vocabs.
-   - [ ] Improve English and Japanese text frontend.
-   - [ ] Develop tiny and larger-sized TTS models.
-   - [ ] Colab scripts.
-   - [ ] Expand training dataset (2k -> 10k).
-   - [ ] better sovits base model (enhanced audio quality)
-   - [ ] model mix
-
-## Credits
-
-=======
 
 ## Todo List
 
@@ -315,7 +231,6 @@ A custom list save path is enabled
 
 
 
->>>>>>> 20ba91a (i18n and pt_BR correction)
 Special thanks to the following projects and contributors:
 
 - [ar-vits](https://github.com/innnky/ar-vits)
@@ -334,10 +249,7 @@ Special thanks to the following projects and contributors:
 - [gradio](https://github.com/gradio-app/gradio)
 
 ## Thanks to all contributors for their efforts
-<<<<<<< HEAD
-=======
 
->>>>>>> 20ba91a (i18n and pt_BR correction)
 <a href="https://github.com/RVC-Boss/GPT-SoVITS/graphs/contributors" target="_blank">
   <img src="https://contrib.rocks/image?repo=RVC-Boss/GPT-SoVITS" />
 </a>
