@@ -2,7 +2,7 @@ import os
 from tools.i18n.i18n import I18nAuto
 i18n = I18nAuto()
 
-def check_fw_local_models():
+def check_fw_local_models(language"pt_BR"):
     '''
     启动时检查本地是否有 Faster Whisper 模型.
     '''
