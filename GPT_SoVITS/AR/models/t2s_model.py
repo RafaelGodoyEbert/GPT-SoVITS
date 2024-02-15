@@ -8,12 +8,9 @@ from AR.models.utils import (
     sample,
     logits_to_probs,
     multinomial_sample_one_no_sync,
-<<<<<<< HEAD
-=======
     dpo_loss,
     make_reject_y, 
     get_batch_logps
->>>>>>> 20ba91a (i18n and pt_BR correction)
 )
 from AR.modules.embedding import SinePositionalEmbedding
 from AR.modules.embedding import TokenEmbedding
@@ -91,8 +88,6 @@ class Text2SemanticDecoder(nn.Module):
             ignore_index=self.EOS,
         )
 
-<<<<<<< HEAD
-=======
     def make_input_data(self, x, x_lens, y, y_lens, bert_feature):
         x = self.ar_text_embedding(x)
         x = x + self.bert_proj(bert_feature.transpose(1, 2))
@@ -146,14 +141,11 @@ class Text2SemanticDecoder(nn.Module):
 
         return xy_pos, xy_attn_mask, targets
 
->>>>>>> 20ba91a (i18n and pt_BR correction)
     def forward(self, x, x_lens, y, y_lens, bert_feature):
         """
         x: phoneme_ids
         y: semantic_ids
         """
-<<<<<<< HEAD
-=======
 
         reject_y, reject_y_lens = make_reject_y(y, y_lens)
 
@@ -194,7 +186,6 @@ class Text2SemanticDecoder(nn.Module):
         x: phoneme_ids
         y: semantic_ids
         """
->>>>>>> 20ba91a (i18n and pt_BR correction)
         x = self.ar_text_embedding(x)
         x = x + self.bert_proj(bert_feature.transpose(1, 2))
         x = self.ar_text_position(x)
@@ -336,10 +327,7 @@ class Text2SemanticDecoder(nn.Module):
         prompts,  ####参考音频token
         bert_feature,
         top_k: int = -100,
-<<<<<<< HEAD
-=======
         top_p: int = 100,
->>>>>>> 20ba91a (i18n and pt_BR correction)
         early_stop_num: int = -1,
         temperature: float = 1.0,
     ):
@@ -411,15 +399,10 @@ class Text2SemanticDecoder(nn.Module):
                 xy_dec[:, -1]
             )  ##不用改，如果用了cache的默认就是只有一帧，取最后一帧一样的
             # samples = topk_sampling(logits, top_k=top_k, top_p=1.0, temperature=temperature)
-<<<<<<< HEAD
-            samples = sample(
-                logits[0], y, top_k=top_k, top_p=1.0, repetition_penalty=1.35
-=======
             if(idx==0):###第一次跑不能EOS否则没有了
                 logits = logits[:, :-1]  ###刨除1024终止符号的概率
             samples = sample(
                 logits[0], y, top_k=top_k, top_p=top_p, repetition_penalty=1.35, temperature=temperature
->>>>>>> 20ba91a (i18n and pt_BR correction)
             )[0].unsqueeze(0)
             if early_stop_num != -1 and (y.shape[1] - prefix_len) > early_stop_num:
                 print("use early stop num:", early_stop_num)

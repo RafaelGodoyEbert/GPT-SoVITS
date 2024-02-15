@@ -9,13 +9,9 @@ from text import symbols
 
 current_file_path = os.path.dirname(__file__)
 CMU_DICT_PATH = os.path.join(current_file_path, "cmudict.rep")
-<<<<<<< HEAD
-CACHE_PATH = os.path.join(current_file_path, "cmudict_cache.pickle")
-=======
 CMU_DICT_FAST_PATH = os.path.join(current_file_path, "cmudict-fast.rep")
 CMU_DICT_HOT_PATH = os.path.join(current_file_path, "engdict-hot.rep")
 CACHE_PATH = os.path.join(current_file_path, "engdict_cache.pickle")
->>>>>>> 20ba91a (i18n and pt_BR correction)
 _g2p = G2p()
 
 arpa = {
@@ -130,8 +126,6 @@ def read_dict():
     return g2p_dict
 
 
-<<<<<<< HEAD
-=======
 def read_dict_new():
     g2p_dict = {}
     with open(CMU_DICT_PATH) as f:
@@ -185,7 +179,6 @@ def read_dict_new():
     return g2p_dict
 
 
->>>>>>> 20ba91a (i18n and pt_BR correction)
 def cache_dict(g2p_dict, file_path):
     with open(file_path, "wb") as pickle_file:
         pickle.dump(g2p_dict, pickle_file)
@@ -196,11 +189,7 @@ def get_dict():
         with open(CACHE_PATH, "rb") as pickle_file:
             g2p_dict = pickle.load(pickle_file)
     else:
-<<<<<<< HEAD
-        g2p_dict = read_dict()
-=======
         g2p_dict = read_dict_new()
->>>>>>> 20ba91a (i18n and pt_BR correction)
         cache_dict(g2p_dict, CACHE_PATH)
 
     return g2p_dict

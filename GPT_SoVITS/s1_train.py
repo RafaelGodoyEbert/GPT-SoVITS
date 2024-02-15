@@ -44,14 +44,8 @@ class my_model_ckpt(ModelCheckpoint):
         self.config = config
 
     def on_train_epoch_end(self, trainer, pl_module):
-<<<<<<< HEAD
-        if not self._should_skip_saving_checkpoint(
-            trainer
-        ) and self._should_save_on_train_epoch_end(trainer):
-=======
         # if not self._should_skip_saving_checkpoint(trainer) and self._should_save_on_train_epoch_end(trainer):
         if self._should_save_on_train_epoch_end(trainer):
->>>>>>> 20ba91a (i18n and pt_BR correction)
             monitor_candidates = self._monitor_candidates(trainer)
             if (
                 self._every_n_epochs >= 1
@@ -112,10 +106,7 @@ def main(args):
         dirpath=ckpt_dir,
     )
     logger = TensorBoardLogger(name=output_dir.stem, save_dir=output_dir)
-<<<<<<< HEAD
-=======
     os.environ["MASTER_ADDR"]="localhost"
->>>>>>> 20ba91a (i18n and pt_BR correction)
     trainer: Trainer = Trainer(
         max_epochs=config["train"]["epochs"],
         accelerator="gpu",
@@ -125,15 +116,9 @@ def main(args):
         devices=-1,
         benchmark=False,
         fast_dev_run=False,
-<<<<<<< HEAD
-        strategy=DDPStrategy(
-            process_group_backend="nccl" if platform.system() != "Windows" else "gloo"
-        ),
-=======
         strategy = "auto" if torch.backends.mps.is_available() else DDPStrategy(
             process_group_backend="nccl" if platform.system() != "Windows" else "gloo"
         ),  # mps 不支持多节点训练
->>>>>>> 20ba91a (i18n and pt_BR correction)
         precision=config["train"]["precision"],
         logger=logger,
         num_sanity_val_steps=0,

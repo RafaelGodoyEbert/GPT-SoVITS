@@ -1,11 +1,7 @@
 # modified from https://github.com/feng-yufei/shared_debugging_code/blob/main/model/utils.py\
 import torch
 import torch.nn.functional as F
-<<<<<<< HEAD
-
-=======
 from typing import Tuple
->>>>>>> 20ba91a (i18n and pt_BR correction)
 
 def sequence_mask(length, max_length=None):
     if max_length is None:
@@ -162,8 +158,6 @@ def sample(
     )
     idx_next = multinomial_sample_one_no_sync(probs)
     return idx_next, probs
-<<<<<<< HEAD
-=======
 
 def dpo_loss(policy_chosen_logps: torch.FloatTensor,
              policy_rejected_logps: torch.FloatTensor,
@@ -231,4 +225,3 @@ def make_reject_y(y_o, y_lens):
     reject_y_lens = torch.tensor(reject_y_lens, device=y_lens.device)
 
     return reject_y, reject_y_lens
->>>>>>> 20ba91a (i18n and pt_BR correction)

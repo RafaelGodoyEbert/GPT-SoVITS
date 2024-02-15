@@ -4,13 +4,8 @@ import sys
 
 import pyopenjtalk
 
-<<<<<<< HEAD
-from text import symbols
-
-=======
 
 from text import symbols
->>>>>>> 20ba91a (i18n and pt_BR correction)
 # Regular expression matching Japanese without punctuation marks:
 _japanese_characters = re.compile(
     r"[A-Za-z\d\u3005\u3040-\u30ff\u4e00-\u9fff\uff11-\uff19\uff21-\uff3a\uff41-\uff5a\uff66-\uff9d]"
@@ -76,11 +71,7 @@ def symbols_to_japanese(text):
     return text
 
 
-<<<<<<< HEAD
-def preprocess_jap(text):
-=======
 def preprocess_jap(text, with_prosody=False):
->>>>>>> 20ba91a (i18n and pt_BR correction)
     """Reference https://r9y9.github.io/ttslearn/latest/notebooks/ch10_Recipe-Tacotron.html"""
     text = symbols_to_japanese(text)
     sentences = re.split(_japanese_marks, text)
@@ -88,12 +79,6 @@ def preprocess_jap(text, with_prosody=False):
     text = []
     for i, sentence in enumerate(sentences):
         if re.match(_japanese_characters, sentence):
-<<<<<<< HEAD
-            p = pyopenjtalk.g2p(sentence)
-            text += p.split(" ")
-
-        if i < len(marks):
-=======
             if with_prosody:
                 text += pyopenjtalk_g2p_prosody(sentence)[1:-1]
             else:
@@ -103,7 +88,6 @@ def preprocess_jap(text, with_prosody=False):
         if i < len(marks):
             if marks[i] == " ":# 防止意外的UNK
                 continue
->>>>>>> 20ba91a (i18n and pt_BR correction)
             text += [marks[i].replace(" ", "")]
     return text
 
@@ -112,11 +96,6 @@ def text_normalize(text):
     # todo: jap text normalize
     return text
 
-<<<<<<< HEAD
-
-def g2p(norm_text):
-    phones = preprocess_jap(norm_text)
-=======
 # Copied from espnet https://github.com/espnet/espnet/blob/master/espnet2/text/phoneme_tokenizer.py
 def pyopenjtalk_g2p_prosody(text, drop_unvoiced_vowels=True):
     """Extract phoneme + prosoody symbol sequence from input full-context labels.
@@ -202,19 +181,11 @@ def _numeric_feature_by_regex(regex, s):
 
 def g2p(norm_text, with_prosody=False):
     phones = preprocess_jap(norm_text, with_prosody)
->>>>>>> 20ba91a (i18n and pt_BR correction)
     phones = [post_replace_ph(i) for i in phones]
     # todo: implement tones and word2ph
     return phones
 
 
 if __name__ == "__main__":
-<<<<<<< HEAD
-    for line in open("../../../Downloads/transcript_utf8.txt").readlines():
-        text = line.split(":")[1]
-        phones = g2p(text)
-        print(phones)
-=======
     phones = g2p("こんにちは, hello, AKITOです,よろしくお願いしますね！")
     print(phones)
->>>>>>> 20ba91a (i18n and pt_BR correction)
